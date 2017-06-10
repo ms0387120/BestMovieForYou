@@ -1,0 +1,186 @@
+<html lang="en">
+<head>
+  <title>Best Movie for You!</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.9/css/bootstrap-dialog.min.css" rel="stylesheet" type="text/css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.7/js/bootstrap-dialog.min.js"></script>
+</head>
+<body>
+
+<div class="container theme-showcase" role="main">
+  <nav class="navbar navbar-inverse" style="margin-bottom: 0px; padding-top: 0px; padding-bottom: 0px;">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" style="color: red;">Final Project G1</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Best Movie for You!</a></li>
+        <li><a href="#">Triangle</a></li>
+        <li><a href="#">Best Director</a></li>
+      </ul>
+    </div>
+  </nav>
+  
+  <div class="jumbotron text-center" style="padding-top: 6px; padding-bottom: 5px; margin-bottom: 10px;">
+    <h1>Best Movie for You!</h1>
+    <p>Find the movies you may also love...</p>
+  </div>
+  
+    
+    <div>
+      <div class="row">
+        <div class="col-sm-5">
+          <div class="panel panel-default" style="height: 380">
+            <div class="panel-heading">
+              <h3 class="panel-title">Reference movies</h3>
+            </div>
+            <div class="panel-body" id="ref_panel">
+              
+                
+            </div>
+          </div>
+        </div>
+          
+          
+        <div class="col-sm-2">
+          <div class="row-sm-6" style="height: 150px;">
+          </div>
+          <div class="row-sm-6 text-center">
+            <div class="btn-group dropup" id="search_similar_area">
+              <button class="btn btn-default dropdown-toggle dropup" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                Select
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                <li><a href="#" data-value="action">Upcoming movies</a></li>
+                <li><a href="#" data-value="another action">Popular movies</a></li>
+                <li><a href="#" data-value="something else here">Top rated movies</a></li>
+                <li><a href="#" data-value="separated link">Now playing movies</a></li>
+              </ul>
+              <input type="text" id="dropdown_menu_selected" style="display:none;" />
+            </div>
+            <div style="height: 1%;"></div>
+            <button type="button" class="btn btn-primary" id="similarity_search" disabled="disabled">Search >></button>
+          </div>
+        </div>
+          
+          
+        <div class="col-sm-5">
+          <div class="panel panel-default" style="height: 380px">
+            <div class="panel-heading">
+              <h3 class="panel-title">Recommend movies</h3>
+            </div>
+            <div class="panel-body" id="rec_panel">
+              
+                
+                
+                
+           
+            </div>
+          </div>
+        </div>
+          
+          
+        <div class="col-sm-12">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <div class="input-group" style="width: 100%">
+                <div class="form-group">
+                  <div class="col-sm-1 choose-ref">
+                      <input type="text" id="ref_movie_id" style="display:none;" />
+                      <input type="text" id="ref_movie_poster" style="display:none;" />
+                      <button class="btn btn-info btn-lg" type="button" style="height: initial;padding: 5px 8px;" id="load_ref_movie">
+                        <i class="glyphicon glyphicon-upload" style="font-size: 18px"></i>
+                      </button>
+                      <button class="btn btn-info btn-lg" type="button" style="height: initial;padding: 5px 8px; display:none;" id="unload_ref_movie">
+                        <i class="glyphicon glyphicon-download" style="font-size: 18px"></i>
+                      </button>
+                  </div>
+                  <h3 class="col-sm-2 panel-title" style="padding: 8px 0px 0px 10px;">Search movies</h3>
+                  <div class="col-sm-6" style="height: 30px;">
+                    <input type="text" class="form-control input-lg" placeholder="Buscar" style="height: 30px; width: 80%;">
+                    <button class="btn btn-info btn-lg" type="button" style="height: initial;padding: 5px 8px;" id="search_movies">
+                      <i class="glyphicon glyphicon-search" style="font-size: 18px"></i>
+                     </button>
+                  </div>
+                  <div class="col-sm-3">
+                    <ul class="pagination justify-content-end" style="margin: 0px;">
+                      <li class="page-item disabled">
+                        <a class="page-link" href="#" tabindex="-1">Previous</a>
+                      </li>
+                      <li class="page-item"><a class="page-link" href="#">1</a></li>
+                      <li class="page-item"><a class="page-link" href="#">2</a></li>
+                      <li class="page-item"><a class="page-link" href="#">3</a></li>
+                      <li class="page-item">
+                        <a class="page-link" href="#">Next</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="panel-body">
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              <div id="search_movies_panel" style="overflow-x: scroll; overflow-y: hidden; white-space: nowrap;">
+                
+              </div> 
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>  
+</div>
+
+    
+    
+<!-- Modal -->
+<div class="modal fade" id="pleaseWaitDialog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+          <h1>Processing...</h1>
+      </div>
+      <div class="modal-body">
+        <div class="progress">
+          <div class="progress-bar progress-bar-success progress-bar-striped progress-bar-animated active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+            
+          </div>
+            
+          <div class="progress">
+  <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
+</div>
+            
+        </div>
+      </div>
+    </div>
+  </div>
+</div>    
+    
+    
+    
+{% load static %}
+<script src="{% static 'findmovies/findmovies.js' %}"></script>
+</body>
+</html>
+
+
+{% if hello_world %}
+    <p>{{ hello_world }}</p>
+{% else %}
+    <p>No message are available.</p>
+{% endif %}
+
