@@ -7,12 +7,13 @@ cd mysite
 cp config_template.yaml config.yaml
 ```
 Inside the `config.yaml` file, fill in your OMDB api key.
-<br />
+
 - Second, type the following command to launch the server:
 ```python
 python manage.py runserver <port>
 ```
 This will launch a local host on `<port>`.
+
 - Third, browse the website:
 ```
 http://localhost:<port>
