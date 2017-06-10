@@ -6,14 +6,12 @@
 cd mysite
 cp config_template.yaml config.yaml
 ```
-Inside the `config.yaml` file, fill in your OMDB api key.
-
+Inside the `config.yaml` file, fill in your OMDB api key.  
 - Second, type the following command to launch the server:
 ```python
 python manage.py runserver <port>
 ```
-This will launch a local host on `<port>`.
-
+This will launch a local host on `<port>`.  
 - Third, browse the website:
 ```
 http://localhost:<port>
@@ -36,8 +34,8 @@ sklearn==0.0
 
 ## Data collected:
 - Data sources: **OMDB**, **IMDB**
-- Number of synopses
-`upcoming movies`: 23
-`popular movies`: 7165
-`now_playing movies`: 51
-`top_rated movies`: 4321
+- Number of synopses:  
+  `upcoming movies`: 23  
+  `popular movies`: 7165  
+  `now_playing movies`: 51  
+  `top_rated movies`: 4321  
