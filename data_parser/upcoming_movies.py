@@ -12,6 +12,43 @@ with open('config.yaml', 'r') as stream:
 data_folder = os.path.join('.', 'data')
 
 
+def parse_corpus(corpus):
+    
+    import nltk
+    from nltk import wordpunct_tokenize
+    from nltk.corpus import stopwords
+    from nltk.stem.porter import PorterStemmer
+    #from nltk.tag.stanford import StanfordNERTagger
+    from nltk.tag import pos_tag
+    import string
+    import itertools
+    
+    
+    commonWords = ['the', 'of', 'and', 'a', 'to', 'in', 'is', 'you', 'that', 'it', 'he', 'was', 'for', 'on', 'are', 'as', 'with', 'his', 'they', 'I', 'at', 'be', 'this', 'have', 'from', 'or', 'one', 'had', 'by', 'word', 'but', 'not', 'what', 'all', 'were', 'we', 'when'\
+, 'your', 'can', 'said', 'there', 'use', 'an', 'each', 'which', 'she', 'do', 'how', 'their', 'if', 'will', 'up', 'other', 'about', 'out', 'many', 'then', 'them', 'these', 'so', 'some', 'her', 'would', 'make', 'like', 'him', 'into', 'time', 'has', 'look', 'two', 'mo\
+re', 'write', 'go', 'see', 'number', 'no', 'way', 'could', 'people', 'my', 'than', 'first', 'water', 'been', 'call', 'who', 'oil', 'its', 'now', 'find', 'long', 'down', 'day', 'did', 'get', 'come', 'made', 'may', 'part']
+    listOfCharToExclude = ['.', ',', ':', '"', '+', '!', '?', '/', "'", '*', '(', ')', '$', '@', '&', '*',']','[']
+    
+    stopwords = set(stopwords.words('english'))
+    stopwords.update(string.punctuation)
+    stopwords.update([p[0] + p[1] for p in itertools.product(string.punctuation, string.punctuation)])
+    stopwords.update(commonWords)
+    stopwords.update(listOfCharToExclude)
+    
+    #st = StanfordNERTagger('/home/orange63/TextMining/Project2/stanford-ner-2014-06-16/classifiers/english.all.3class.distsim.crf.ser.gz',
+    #                       '/home/orange63/TextMining/Project2/stanford-ner-2014-06-16/stanford-ner-3.4.jar')
+    porter = PorterStemmer()
+    
+    corpus_token = wordpunct_tokenize(corpus)
+    corpus_token = [word for word in corpus_token if word not in stopwords]
+    #corpus_no_people = [p[0] for p in filter(lambda x: x[1] != 'PERSON', st.tag(corpus_token))]
+    corpus_NN = [p[0] for p in filter(lambda x: (x[1] == 'NN') or (x[1] == 'NNP'), pos_tag(corpus_token))]
+    corpus_stem = [porter.stem(word) for word in corpus_NN]
+    
+    return ' '.join(corpus_stem)
+
+
+
 def crawl_upcoming_movies_id():
     
     var = {
@@ -115,3 +152,19 @@ synopsis = list(filter(lambda x: x[1] != '\n', synopsis))
 data_file = os.path.join(data_folder, 'upcoming_movies_synopsis.json')
 with open(data_file, 'w') as stream:
     json.dump(synopsis, stream)
+
+    
+    
+    
+# Load upcoming movies synopsis
+data_file = os.path.join(data_folder, 'upcoming_movies_synopsis.json')
+with open(data_file, 'r') as stream:
+    movies_synopsis_load = json.load(stream)
+    
+movies_synopsis_parsed = [(p[0], parse_corpus(p[1]))
+                          for p in movies_synopsis_load]
+
+# Save upcoming movies synopsis parsed
+data_file = os.path.join(data_folder, 'upcoming_movies_synopsis_parsed.json')
+with open(data_file, 'w') as stream:
+    json.dump(movies_synopsis_parsed, stream)
