@@ -33,3 +33,11 @@ scikit-learn==0.18.1
 scipy==0.19.0
 sklearn==0.0
 ```
+
+## Data collected:
+- Data sources: **OMDB**, **IMDB**
+- Number of synopses
+`upcoming movies`: 23
+`popular movies`: 7165
+`now_playing movies`: 51
+`top_rated movies`: 4321
