@@ -17,7 +17,7 @@ def index(request):
     context = {
         'hello_world': hello_world,
     }
-    return render(request, 'index.html', context)
+    return render(request, 'findmovies/index.html', context)
 
 
 

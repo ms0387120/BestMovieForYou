@@ -20,5 +20,7 @@ from django.http import HttpResponseRedirect
 urlpatterns = [
     url(r'^$', lambda r: HttpResponseRedirect('findmovies/')),
     url(r'^findmovies/', include('findmovies.urls')),
+    url(r'^triangle/', include('triangle.urls')),
+    url(r'^most_active_actors/', include('most_active_actors.urls')),
     url(r'^admin/', admin.site.urls),
 ]

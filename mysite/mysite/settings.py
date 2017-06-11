@@ -33,6 +33,8 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'findmovies.apps.FindmoviesConfig',
+    'triangle.apps.TriangleConfig',
+    'most_active_actors.apps.MostActiveActorsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
