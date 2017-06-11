@@ -23,6 +23,7 @@ And, enjoy!
 beautifulsoup4==4.6.0
 Django==1.11.2
 httplib2==0.10.3
+lxml==3.7.3
 nltk==3.2.4
 numpy==1.12.1
 PyYAML==3.12
