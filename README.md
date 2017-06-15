@@ -39,4 +39,14 @@ sklearn==0.0
   `upcoming movies`: 23  
   `popular movies`: 7165  
   `now_playing movies`: 51  
-  `top_rated movies`: 4321  
+  `top_rated movies`: 4321 
+  
+  ## Useage of Apriori in Jupyter:
+  -Read csv file
+  ```
+  f = open('actor.csv','r')
+  ```
+  -Run Apriori
+  ```
+  !python apriori.py -f actor.csv -s [support num] -c [confidence num]
+ ```
